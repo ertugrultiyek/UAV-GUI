@@ -1,0 +1,93 @@
+
+#gaugeBox .wrapper{
+  display: flex;
+  transform-origin: top left;
+}
+
+.gaugeContainer {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  position: relative;
+}
+
+.gauge {
+  margin: 0px;
+  padding: 0;
+  /* cursor: pointer; */
+  /* border: 1px solid #0a1a17; */
+}
+
+.gauge.focusable {
+  /* border: 1px solid #0f4534; */
+}
+
+.gaugeContainer .output {
+  line-height: 60px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--blue-dark-bg);
+  border-radius: 60px;
+  position: absolute;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  text-align: center;
+}
+
+.gaugeContainer .halfOutput {
+  line-height: 35px;
+  width: 60px;
+  height: 30px;
+  background-color: var(--blue-dark-bg);
+  border-radius: 60px 60px 0 0;
+  position: absolute;
+  top: 135px;
+  left: 135px;
+  text-align: center;
+}
+
+.gaugeContainer .label {
+	line-height: 30px;
+    width: 80px;
+    height: 30px;
+    background-color: var(--blue-dark-bg);
+    border-radius: 10px;
+    position: absolute;
+	top: calc(50% + 30px);
+	left: calc(50% - 40px);
+    text-align: center;
+}
+
+.gauge .outline,
+.gauge .fill,
+.gauge .center,
+.gauge .needle,
+.gauge .scale,
+.gauge .halfOutput,
+.gauge .output {
+  pointer-events: none;
+}
+
+.gauge .outline {
+  fill: #000f0894;
+}
+
+.gauge .fill {
+  fill: #00f0c082;
+}
+
+.gauge .needle {
+  fill: #FF0000;
+}
+
+.gauge .scale {
+  stroke: #aaa;
+}
+
+.gauge text {
+  text-anchor: middle;
+  dominant-baseline: alphabetic;
+  font: 12px verdana, sans-serif;
+  fill: white;
+  user-select: none;
+}

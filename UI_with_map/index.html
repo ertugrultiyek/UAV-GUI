@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" type="text/css" href="./sources/style.css" />
+		<script src="./sources/javascript/map.js"></script>
+		<script src="./sources/javascript/p5.min.js"></script>
+		<script src="./sources/javascript/app.js"></script>
+  </head>
+  <body onresize="setup()">
+		<div class="menu" id="menu"></div>
+		<div id="container">
+			<div id="lft">
+				<div class="">
+					<canvas id="display1"></canvas>
+					<canvas id="display2" width="180" height="180"></canvas>
+				</div>
+			</div>
+	  	<div id="map"></div>
+			<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+	    <script
+	      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDczmcU1h60e9xAGAa_HqzwkrIbrGvEQKg&callback=initMap&libraries=&v=weekly"
+	      async
+	    ></script>
+			<div id="rgt">
+				<div class="">
+					<canvas id="display3" width="180" height="180"></canvas>
+					<canvas id="display4" width="180" height="180"></canvas>
+				</div>
+			</div>
+		</div>
+
+
+  </body>
+</html>

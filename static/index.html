@@ -1,0 +1,110 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>UAV GUI</title>
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="stylesheets/animations.css">
+		<link rel="stylesheet" type="text/css" href="stylesheets/index.css">
+		<link rel="stylesheet" type="text/css" href="stylesheets/Gauge.css">
+		<link rel="stylesheet" type="text/css" href="stylesheets/graph.css">
+		<link rel="stylesheet" type="text/css" href="stylesheets/CustomSelect.css">
+		<link rel="stylesheet" type="text/css" href="stylesheets/CustomCheckbox.css">
+		<link rel="stylesheet" type="text/css" href="stylesheets/Spinner.css">
+		<link rel="stylesheet" type="text/css" href="stylesheets/mobile.css">
+		<!-- 3rd party scripts -->
+		<link rel="stylesheet" href="libs/leaflet/leaflet.css" >
+		<script src="libs/leaflet/leaflet.js" ></script>
+		<script src="libs/leaflet-ant-path.js" type="text/javascript"></script>
+		<script src="libs/leaflet.polylineDecorator.js" type="text/javascript"></script>
+		<script src="libs/d3/d3.min.js"></script>
+	</head>
+	<body>
+		<div id="PanelContainer">
+			<div id="LeftPanel">
+				<div id="map"></div>
+				<div id="HUD">
+					<div id="LeftFlightPanel" class="hidden">
+						<div class="wrapper">
+							<div id="vsiGauge"></div>
+							<div id="speedGauge"></div>
+							<div id="batteryGauge"></div>
+						</div>
+						<!-- <div class="verticalResizer"></div> -->
+					</div>
+					<div id="innerHUD">
+						<div id="BottomLeftPanel">
+							<div id="LatLang"></div>
+						</div>
+						<div id="BottomRightPanel" class="hidden">
+							<div class="close blockButton" onclick="BottomRightPanel.hide()">
+								X
+							</div>
+							<div class="content"></div>
+						</div>
+						<div id="TopLeftPanel">
+							<div id="connectButton" class="blockButton">Connect</div>
+							<div id="MenuButton" class="blockButton">Menu</div>
+							<div id="camButton" class="blockButton">Camera</div>
+							<div id="planButtons" class="buttonGroup">
+								<label class="blockButton" for="fileInput">Load</label>
+								<input id="fileInput" type="file" onchange="graph.readFile(event)">
+								<div class="blockButton" onclick="graph.saveFile()">Save</div>
+								<div class="blockButton" onclick="graph.clear()">Clear</div>
+								<div class="blockButton" onclick="setFlightMode()">Flight Mode</div>
+							</div>
+							<div id="flightButtons" class="buttonGroup hidden">
+								<div class="blockButton" onclick="setPlanMode()">Plan Mode</div>
+							</div>
+						</div>
+						<div id="TopRightPanel">
+						</div>
+					</div>
+					<div id="RightFlightPanel" class="hidden">
+						<div class="wrapper">
+							<div id="altitudeGauge"></div>
+							<div class="gaugeContainer">
+								<canvas id="attitudeIndicator" width="320" height="320"></canvas>
+								<div id="attitudeBank"></div>
+								<div id="attitudePitch"></div>
+							</div>
+							<div class="gaugeContainer">
+								<canvas id="headingIndicator" width="320" height="320"></canvas>
+								<div id="headingBank"></div>
+								<div id="headingPitch"></div>
+							</div>
+						</div>
+						<!-- <div class="verticalResizer"></div> -->
+					</div>
+					<div id="cambox" class="floater">
+						<div class="title">Camera</div>
+						<div class="resizer ne"></div>
+						<div class="resizer nw"></div>
+						<div id="camera">PUT CAMERA HERE</div>
+						<div class="resizer se"></div>
+						<div class="resizer sw"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="Overlay" class="hidden"></div>
+
+		<div id="Tooltip" class="hidden"></div>
+		<div id="ContextMenu" class="hidden"></div>
+
+		<script src="Gauge.js"></script>
+		<script src="adapter.js"></script>
+		<script src="AttitudeIndicator.js"></script>
+		<script src="HeadingIndicator.js"></script>
+		<script src="Debug.js"></script>
+		<script src="Floating.js"></script>
+		<script src="Network.js"></script>
+		<script src="HUD.js"></script>
+		<script src="Tooltip.js"></script>
+		<script src="Graph.js"></script>
+		<script src="Map.js"></script>
+		<script src="Menu.js"></script>
+		<script src="Main.js"></script>
+	</body>
+</html>
